@@ -29,6 +29,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 
+## [0.1.1] - 2021-08-21
+
+### Fixed
+- Fix submodule
+
+
 
 ## 0.1.0 - 2021-08-21
 
@@ -37,4 +43,5 @@ First release
 
 
 
-[Unreleased]: https://github.com/rabiloo/terraform-aws-iam/compare/v0.1.0...master
+[Unreleased]: https://github.com/rabiloo/terraform-aws-iam/compare/v0.1.1...master
+[0.1.1]:      https://github.com/rabiloo/terraform-aws-iam/compare/v0.1.0...v0.1.1

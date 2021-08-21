@@ -7,7 +7,7 @@ Terraform module which creates some IAM resources on AWS.
 ```hcl
 module "user" {
   source  = "rabiloo/iam/aws//modules/iam-user"
-  version = "~> 0.1.0"
+  version = "~> 0.1.1"
 
   name = "deployer"
   path = "/service-users/"
@@ -20,7 +20,7 @@ module "user" {
 
 module "role" {
   source  = "rabiloo/iam/aws//modules/iam-assumable-role"
-  version = "~> 0.1.0"
+  version = "~> 0.1.1"
 
   name = "custom-ecs-task-role"
   path = "/service-roles/"
