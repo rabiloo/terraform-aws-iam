@@ -30,11 +30,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 
-## 0.1.0 - 2021-08-10
+## 0.1.0 - 2021-08-21
 
 First release
 
 
 
 
-[Unreleased]: https://github.com/rabiloo/terraform-aws-ecr/compare/v0.1.0...master
+[Unreleased]: https://github.com/rabiloo/terraform-aws-iam/compare/v0.1.0...master

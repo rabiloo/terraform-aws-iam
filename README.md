@@ -54,7 +54,7 @@ This is to ensure proper review of all the code.
 
 Fork the project, create a feature branch, and send a pull request.
 
-If you would like to help take a look at the [list of issues](https://github.com/rabiloo/terraform-aws-ecr/issues).
+If you would like to help take a look at the [list of issues](https://github.com/rabiloo/terraform-aws-iam/issues).
 
 ## License
 
