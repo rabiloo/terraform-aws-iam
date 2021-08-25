@@ -37,13 +37,13 @@ variable "trusted_actions" {
 }
 
 variable "trusted_services" {
-  description = "AWS Services that can assume these roles"
+  description = "List of AWS Services that can assume these roles"
   type        = list(string)
   default     = []
 }
 
 variable "trusted_entities" {
-  description = "ARNs of AWS entities who can assume these roles"
+  description = "List of ARNs of AWS entities who can assume these roles"
   type        = list(string)
   default     = []
 }
@@ -54,7 +54,7 @@ variable "role_sts_externalid" {
   default     = []
 }
 
-variable "custom_policy_arns" {
+variable "custom_policies" {
   description = "List of ARNs of IAM policies to attach to IAM role"
   type        = list(string)
   default     = []

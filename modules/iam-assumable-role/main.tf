@@ -2,7 +2,7 @@ locals {
   trusted_actions     = compact(distinct(var.trusted_actions))
   trusted_services    = compact(distinct(var.trusted_services))
   trusted_entities    = compact(distinct(var.trusted_entities))
-  custom_policy_arns  = compact(distinct(var.custom_policy_arns))
+  custom_policies     = compact(distinct(var.custom_policies))
   role_sts_externalid = flatten([var.role_sts_externalid])
 }
 
@@ -46,10 +46,10 @@ resource "aws_iam_role" "this" {
 }
 
 resource "aws_iam_role_policy_attachment" "custom" {
-  count = length(local.custom_policy_arns)
+  count = length(local.custom_policies)
 
   role       = aws_iam_role.this.id
-  policy_arn = element(local.custom_policy_arns, count.index)
+  policy_arn = element(local.custom_policies, count.index)
 }
 
 resource "aws_iam_instance_profile" "this" {
