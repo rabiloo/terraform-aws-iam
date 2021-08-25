@@ -35,17 +35,40 @@ module "role" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| Terraform | `~> 1.0` |
+No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| aws  | `~> 3.52` |
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
+
+## Development
+
+1. Install `terrform`, `tflint`, `terraform-docs` and `make`
+2. Using make
+
+```
+make help
+```
 
 ## Contributing
 
