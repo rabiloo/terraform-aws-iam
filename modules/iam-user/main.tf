@@ -47,4 +47,3 @@ resource "aws_iam_role_policy_attachment" "custom" {
   user       = aws_iam_user.this.name
   policy_arn = element(local.custom_policy_arns, count.index)
 }
-
