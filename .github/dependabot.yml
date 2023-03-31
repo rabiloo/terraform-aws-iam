@@ -6,26 +6,29 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      timezone: 05:00 UTC
       interval: weekly
       day: monday
+      time: 12:00
+      timezone: Asia/Ho_Chi_Minh
     labels:
       - dependencies
 
   - package-ecosystem: terraform
     directory: /modules/iam-assumable-role
     schedule:
-      timezone: 05:00 UTC
       interval: weekly
       day: monday
+      time: 12:00
+      timezone: Asia/Ho_Chi_Minh
     labels:
       - dependencies
 
   - package-ecosystem: terraform
     directory: /modules/iam-user
     schedule:
-      timezone: 05:00 UTC
       interval: weekly
       day: monday
+      time: 12:00
+      timezone: Asia/Ho_Chi_Minh
     labels:
       - dependencies
