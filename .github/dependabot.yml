@@ -1,0 +1,31 @@
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      timezone: 05:00 UTC
+      interval: weekly
+      day: monday
+    labels:
+      - dependencies
+
+  - package-ecosystem: terraform
+    directory: /modules/iam-assumable-role
+    schedule:
+      timezone: 05:00 UTC
+      interval: weekly
+      day: monday
+    labels:
+      - dependencies
+
+  - package-ecosystem: terraform
+    directory: /modules/iam-user
+    schedule:
+      timezone: 05:00 UTC
+      interval: weekly
+      day: monday
+    labels:
+      - dependencies
