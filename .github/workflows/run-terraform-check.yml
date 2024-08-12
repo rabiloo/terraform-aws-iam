@@ -16,8 +16,8 @@ jobs:
 
       - name: Show version
         run: |
-          terraform --version
+          terraform -version
 
       - name: Run check format
         run: |
-          terraform fmt --recursive --check --no-color
+          terraform fmt -recursive -check -no-color

@@ -49,11 +49,11 @@ tflint: ## Run TFLint check
 
 .PHONY: tofu
 tofu: ## Run OpenTofu files
-	tofu fmt --recursive --check
+	tofu fmt -recursive -check
 
 .PHONY: terraform
 terraform: ## Run Terraform check
-	terraform fmt --recursive --check
+	terraform fmt -recursive -check
 
 .PHONY: docs
 docs: ## Generate README.md

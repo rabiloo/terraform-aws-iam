@@ -15,8 +15,8 @@ jobs:
         uses: opentofu/setup-opentofu@v1
 
       - name: Show version
-        run: tofu --version
+        run: tofu -version
 
       - name: Run check format
         run: |
-          terraform fmt --check --recursive --no-color
+          terraform fmt -check -recursive -no-color
