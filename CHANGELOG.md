@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/rabiloo/terraform-aws-iam/compare/v0.3.2...master)
+## [Unreleased](https://github.com/rabiloo/terraform-aws-iam/compare/v0.4.0...master)
 
 ### Added
 
@@ -32,6 +32,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Nothing
 
 <!-- New Release notes will be placed here automatically -->
+## [v0.4.0](https://github.com/rabiloo/terraform-aws-iam/compare/v0.3.2...v0.4.0) - 2024-08-12
+
+### What's Changed
+
+- Fix error on module `iam-gitlab-oidc-provider` and `iam-gitlab-oidc-role` by @oanhnn
+- [BC] Change variables of module `iam-gitlab-oidc-role` by @oanhnn
+
+**Full Changelog**: https://github.com/rabiloo/terraform-aws-iam/compare/v0.3.2...v0.4.0
+
 ## [v0.3.2](https://github.com/rabiloo/terraform-aws-iam/compare/v0.3.1...v0.3.2) - 2024-08-12
 
 ### What's  changed
