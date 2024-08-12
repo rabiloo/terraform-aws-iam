@@ -5,32 +5,29 @@ Terraform module which creates some IAM resources on AWS.
 ## Usage
 
 ```hcl
-module "user" {
-  source  = "rabiloo/iam/aws//modules/iam-user"
-  version = "~> 0.3.0"
+module "gitlab_provider" {
+  source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-provider"
+  version = "~> 0.3.2"
 
-  name = "deployer"
-  path = "/service-users/"
+  url = "https://gitlab.example.com"
 
   tags = {
-    Owner   = "user"
-    Service = "app-name"
+    Company = "example"
   }
 }
 
-module "role" {
-  source  = "rabiloo/iam/aws//modules/iam-assumable-role"
-  version = "~> 0.3.0"
+module "gitlab_deployer_role" {
+  source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-role"
+  version = "~> 0.3.2"
 
-  name = "custom-ecs-task-role"
-  path = "/service-roles/"
-
-  trusted_services = ["ecs-tasks.amazonaws.com"]
-  custom_policies  = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
+  name_prefix  = "gitlab-ci-deployer-"
+  path         = "/service-roles/"
+  provider_url = module.gitlab_provider.url
+  subjects     = ["my-org/my-repo"]
 
   tags = {
-    Owner   = "user"
-    Service = "app-name"
+    Namespace = "my-org"
+    Project = "my-repo"
   }
 }
 ```
@@ -63,7 +60,7 @@ No outputs.
 
 ## Development
 
-1. Install `terrform`, `tflint`, `terraform-docs` and `make`
+1. Install `opentofu`, `terrform`, `tflint`, `terraform-docs` and `make`
 2. Using make
 
 ```

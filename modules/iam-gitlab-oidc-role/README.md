@@ -5,9 +5,9 @@ This submodule help create an IAM Gitlab OIDC role
 ## Usage
 
 ```hcl
-module "gitlab-deployer-role" {
+module "gitlab_deployer_role" {
   source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-role"
-  version = "~> 0.3.0"
+  version = "~> 0.3.2"
 
   name_prefix  = "gitlab-ci-deployer-"
   path         = "/service-roles/"

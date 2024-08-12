@@ -40,7 +40,7 @@ help: ## This help
 	@echo ""
 
 .PHONY: build
-build: tofu tflint docs ## Build module
+build: tofu terraform tflint docs ## Build module
 
 .PHONY: tflint
 tflint: ## Run TFLint check

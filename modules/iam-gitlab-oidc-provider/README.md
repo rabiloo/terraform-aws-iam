@@ -7,7 +7,7 @@ This submodule help create an IAM Gitlab OIDC provider
 ```hcl
 module "gitlab_provider" {
   source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-provider"
-  version = "~> 0.3.0"
+  version = "~> 0.3.2"
 
   url = "https://gitlab.example.com"
 
@@ -74,5 +74,5 @@ If you would like to help take a look at the [list of issues](https://github.com
 ## License
 
 This project is released under the MIT License.   
-Copyright © 2021 [Rabiloo Co., Ltd](https://rabiloo.com)   
+Copyright © 2024 [Rabiloo Co., Ltd](https://rabiloo.com)   
 Please see [License File](https://github.com/rabiloo/terraform-aws-iam/blob/master/LICENSE) for more information.
