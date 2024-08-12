@@ -7,7 +7,7 @@ This submodule help create an IAM assumable role
 ```hcl
 module "role" {
   source  = "rabiloo/iam/aws//modules/iam-assumable-role"
-  version = "~> 0.2.0"
+  version = "~> 0.3.0"
 
   name = "custom-ecs-task-role"
   path = "/service-roles/"

@@ -13,22 +13,3 @@ updates:
     labels:
       - dependencies
 
-  - package-ecosystem: terraform
-    directory: /modules/iam-assumable-role
-    schedule:
-      interval: weekly
-      day: monday
-      time: "12:00"
-      timezone: Asia/Ho_Chi_Minh
-    labels:
-      - dependencies
-
-  - package-ecosystem: terraform
-    directory: /modules/iam-user
-    schedule:
-      interval: weekly
-      day: monday
-      time: "12:00"
-      timezone: Asia/Ho_Chi_Minh
-    labels:
-      - dependencies

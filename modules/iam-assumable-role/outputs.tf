@@ -20,17 +20,17 @@ output "iam_role_unique_id" {
 
 output "iam_instance_profile_arn" {
   description = "ARN of IAM instance profile"
-  value       = element(concat(aws_iam_instance_profile.this.*.arn, [""]), 0)
+  value       = element(concat(aws_iam_instance_profile.this[*].arn, [""]), 0)
 }
 
 output "iam_instance_profile_name" {
   description = "Name of IAM instance profile"
-  value       = element(concat(aws_iam_instance_profile.this.*.name, [""]), 0)
+  value       = element(concat(aws_iam_instance_profile.this[*].name, [""]), 0)
 }
 
 output "iam_instance_profile_path" {
   description = "Path of IAM instance profile"
-  value       = element(concat(aws_iam_instance_profile.this.*.path, [""]), 0)
+  value       = element(concat(aws_iam_instance_profile.this[*].path, [""]), 0)
 }
 
 output "role_sts_externalid" {
