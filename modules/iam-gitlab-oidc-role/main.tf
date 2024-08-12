@@ -5,11 +5,11 @@ locals {
   # Just extra safety incase someone passes in a url with `https://`
   provider_url = replace(var.provider_url, "https://", "")
 
-  # Defaults to provider URL if not values are provided
-  audiences = coalescelist(var.audiences, [local.provider_url])
-
   # Strip `project_path:` to normalize for cases where users may prepend it
   subjects = [for subject in var.subjects : "project_path:${trimprefix(subject, "project_path:")}"]
+
+  match_field  = lower(var.match_field)
+  match_values = length(var.match_values) == 0 && local.match_field == "aud" ? [local.provider_url] : var.match_values
 
   account_id = data.aws_caller_identity.current.account_id
   partition  = data.aws_partition.current.partition
@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "this" {
   count = var.create ? 1 : 0
 
   statement {
-    sid    = "GitlabOidcAuth"
+    sid    = "GitlabOIDCAuth"
     effect = "Allow"
     actions = [
       "sts:TagSession",
@@ -36,15 +36,15 @@ data "aws_iam_policy_document" "this" {
     }
 
     condition {
-      test     = "ForAllValues:StringEquals"
+      test     = "StringEquals"
       variable = "${local.provider_url}:iss"
       values   = ["https://${local.provider_url}"]
     }
 
     condition {
-      test     = "ForAllValues:StringEquals"
-      variable = "${local.provider_url}:aud"
-      values   = local.audiences
+      test     = "StringEquals"
+      variable = "${local.provider_url}:${local.match_field}"
+      values   = local.match_values
     }
 
     condition {

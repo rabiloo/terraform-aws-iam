@@ -7,7 +7,7 @@ This submodule help create an IAM Gitlab OIDC role
 ```hcl
 module "gitlab_deployer_role" {
   source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-role"
-  version = "~> 0.3.2"
+  version = "~> 0.4.0"
 
   name_prefix  = "gitlab-ci-deployer-"
   path         = "/service-roles/"
@@ -26,14 +26,14 @@ module "gitlab_deployer_role" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=4.0 |
 
 ## Modules
 
@@ -53,10 +53,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_audiences"></a> [audiences](#input\_audiences) | List of audience to use for OIDC role. Defaults to provider URL if not values are provided. | `list(string)` | `[]` | no |
 | <a name="input_create"></a> [create](#input\_create) | Controls if resources should be created (affects all resources) | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | IAM Role description | `string` | `null` | no |
 | <a name="input_force_detach_policies"></a> [force\_detach\_policies](#input\_force\_detach\_policies) | Whether policies should be detached from this role when destroying | `bool` | `true` | no |
+| <a name="input_match_field"></a> [match\_field](#input\_match\_field) | The field of ID Token payload, that the OIDC role filter on (see https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html). Defaults to `aud`. | `string` | `"aud"` | no |
+| <a name="input_match_values"></a> [match\_values](#input\_match\_values) | List of values to match with the OIDC role filter field by `StringEquals` operator | `list(string)` | `[]` | no |
 | <a name="input_max_session_duration"></a> [max\_session\_duration](#input\_max\_session\_duration) | Maximum CLI/API session duration in seconds between 3600 and 43200 | `number` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of IAM role | `string` | `null` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | IAM role name prefix | `string` | `null` | no |

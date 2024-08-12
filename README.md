@@ -7,7 +7,7 @@ Terraform module which creates some IAM resources on AWS.
 ```hcl
 module "gitlab_provider" {
   source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-provider"
-  version = "~> 0.3.2"
+  version = "~> 0.4.0"
 
   url = "https://gitlab.example.com"
 
@@ -18,7 +18,7 @@ module "gitlab_provider" {
 
 module "gitlab_deployer_role" {
   source  = "rabiloo/iam/aws//modules/iam-gitlab-oidc-role"
-  version = "~> 0.3.2"
+  version = "~> 0.4.0"
 
   name_prefix  = "gitlab-ci-deployer-"
   path         = "/service-roles/"

@@ -7,7 +7,7 @@ This submodule help create an IAM user
 ```hcl
 module "user" {
   source  = "rabiloo/iam/aws//modules/iam-user"
-  version = "~> 0.3.2"
+  version = "~> 0.4.0"
 
   name = "deployer"
   path = "/service-users/"

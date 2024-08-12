@@ -21,17 +21,12 @@ variable "client_id_list" {
 }
 
 variable "url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim. The address of your GitLab instance, such as https://gitlab.com or http://gitlab.example.com."
+  description = "The URL of the identity provider. Corresponds to the iss claim. The address of your GitLab instance, such as `gitlab.com` or `gitlab.example.com`."
   type        = string
-  default     = "https://gitlab.com"
+  default     = "gitlab.com"
 
   validation {
-    condition     = startswith(var.url, "https://")
-    error_message = "The URL must begin with `https://`."
-  }
-
-  validation {
-    condition     = endswith(var.url, "/")
+    condition     = !endswith(var.url, "/")
     error_message = "The URL is not include a trailing slash."
   }
 }

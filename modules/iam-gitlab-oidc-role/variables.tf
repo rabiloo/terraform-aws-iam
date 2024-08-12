@@ -62,10 +62,15 @@ variable "max_session_duration" {
   default     = null
 }
 
-variable "audiences" {
-  description = "List of audience to use for OIDC role. Defaults to provider URL if not values are provided."
-  type        = list(string)
-  default     = []
+variable "provider_url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
+  type        = string
+  default     = "gitlab.com"
+
+  validation {
+    condition     = !endswith(var.provider_url, "/")
+    error_message = "The URL is not include a trailing slash."
+  }
 }
 
 variable "subjects" {
@@ -74,13 +79,14 @@ variable "subjects" {
   default     = []
 }
 
-variable "provider_url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
+variable "match_field" {
+  description = "The field of ID Token payload, that the OIDC role filter on (see https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html). Defaults to `aud`."
   type        = string
-  default     = "gitlab.com"
+  default     = "aud"
+}
 
-  validation {
-    condition     = endswith(var.provider_url, "/")
-    error_message = "The URL is not include a trailing slash."
-  }
+variable "match_values" {
+  description = "List of values to match with the OIDC role filter field by `StringEquals` operator"
+  type        = list(string)
+  default     = []
 }
