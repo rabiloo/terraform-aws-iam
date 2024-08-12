@@ -36,13 +36,13 @@ data "aws_iam_policy_document" "this" {
     }
 
     condition {
-      test     = "StringEquals"
+      test     = "ForAllValues:StringEquals"
       variable = "${local.provider_url}:iss"
       values   = ["https://${local.provider_url}"]
     }
 
     condition {
-      test     = "StringEquals"
+      test     = "ForAllValues:StringEquals"
       variable = "${local.provider_url}:${local.match_field}"
       values   = local.match_values
     }
