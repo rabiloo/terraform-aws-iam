@@ -41,9 +41,9 @@ resource "aws_iam_user_ssh_key" "this" {
   public_key = var.ssh_public_key
 }
 
-resource "aws_iam_role_policy_attachment" "custom" {
-  count = length(local.custom_policy_arns)
+resource "aws_iam_user_policy_attachment" "custom" {
+  for_each = local.custom_policy_arns
 
   user       = aws_iam_user.this.name
-  policy_arn = element(local.custom_policy_arns, count.index)
+  policy_arn = each.value
 }
